@@ -6,7 +6,10 @@ export default {
 
   // Each time you add an action, add it here
   ActionTypes: keyMirror({
-    ADD_TASK: null
+    ADD_TASK: null,
+    LOGIN: null,
+    LOGOUT: null,
+    ALERT: null
   }),
 
   ActionSources: keyMirror({

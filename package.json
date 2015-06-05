@@ -36,6 +36,9 @@
   },
   "dependencies": {
     "flux": "^2.0.3",
+    "jquery": "^2.1.4",
+    "jquery.cookie": "^1.4.1",
+    "lodash": "^3.9.3",
     "object-assign": "^2.0.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.0"

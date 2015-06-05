@@ -1,38 +1,53 @@
 import React, {PropTypes} from 'react';
-import Button from 'react-bootstrap/lib/Button';
-import Jumbotron from 'react-bootstrap/lib/Jumbotron';
-import TaskList from './TaskList.jsx';
+import ProcessController from './ProcessController.jsx';
+import Authentication from './Authentication.jsx';
+import Alert from './Alert.jsx'
+import SessionActionCreators from '../actions/SessionActionCreators'
+import SessionStore from '../stores/SessionStore'
 
 export default React.createClass({
-  propTypes: {
-    tasks: PropTypes.array.isRequired,
-    onAddTask: PropTypes.func.isRequired,
-    onClear: PropTypes.func.isRequired
+
+  getInitialState() {
+    return {
+      user: SessionStore.getUser()
+    };
   },
 
-  getDefaultProps() {
-    return {
-      tasks: []
-    }
+  handleLogin(user, pass) {
+    SessionActionCreators.login(user, pass);
+  },
+
+  handleLogout() {
+    SessionActionCreators.logout();
+  },
+
+  _onChange() {
+    this.setState({
+      user: SessionStore.getUser()
+    });
+  },
+
+  componentDidMount() {
+    SessionStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount() {
+    SessionStore.removeChangeListener(this._onChange);
   },
 
   render() {
-    let {onAddTask, onClear, tasks} = this.props;
+
+    var content = <Authentication handleLogin={this.handleLogin} />
+    if(this.state.user !== null)
+      content = <ProcessController handleLogout={this.handleLogout} />
+
     return (
-      <div className="container">
-        <Jumbotron>
-          <h1>Learning Flux</h1>
-          <p>
-            Below is a list of tasks you can implement to better grasp the patterns behind Flux.<br />
-            Most features are left unimplemented with clues to guide you on the learning process.
-          </p>
-        </Jumbotron>
-
-        <TaskList tasks={tasks} />
-
-        <Button onClick={onAddTask} bsStyle="primary">Add New</Button>
-        <Button onClick={onClear} bsStyle="danger">Clear List</Button>
+      <div>
+        <Alert />
+        {content}
       </div>
     );
+
   }
+
 });

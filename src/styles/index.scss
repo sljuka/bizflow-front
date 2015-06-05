@@ -1,0 +1,17 @@
+.authentication {
+  margin-top: 150px;
+}
+
+.authentication__form {
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 40px
+}
+
+.notification-box {
+  position: absolute;
+  width: 30%;
+  left: 35%;
+  top: 10px;
+  z-index: 1;
+}
