@@ -2,36 +2,30 @@ import Dispatcher from '../Dispatcher';
 import Constants from '../Constants';
 import BaseStore from './BaseStore';
 import assign from 'object-assign';
-import $ from 'jquery';
-import _ from 'lodash';
-import CookieHandler from '../utils/cookieHandler';
 
-// data storagelet
-let _processes = [];
+// data storage
+let _blueprints = []
 
 // add private functions to modify data
-function setProcesses(processes) {
-  _processes = processes
+function blueprints(data) {
+  _blueprints = data.blueprints;
 }
 
 // Facebook style store creation.
-const ProcessStore = assign({}, BaseStore, {
+const BlueprintsStore = assign({}, BaseStore, {
   // public methods used by Controller-View to operate on data
-  getProcesses() {
-    return _processes;
-  },
-
-  getNames() {
-    return CookieHandler.getBlueprintNames()
+  getBlueprints() {
+    return _blueprints;
   },
 
   // register store with dispatcher, allowing actions to flow through
   dispatcherIndex: Dispatcher.register(function(payload) {
     let action = payload.action;
+
     switch(action.type) {
-      case Constants.ActionTypes.PROCESSES:
-        setProcesses(action.data.processes);
-        ProcessStore.emitChange();
+      case Constants.ActionTypes.BLUEPRINTS:
+        blueprints(action.data)
+        BlueprintsStore.emitChange();
         break;
 
       // add more cases for other actionTypes...
@@ -39,4 +33,4 @@ const ProcessStore = assign({}, BaseStore, {
   })
 });
 
-export default ProcessStore;
+export default BlueprintsStore;

@@ -9,7 +9,10 @@ export default {
     ADD_TASK: null,
     LOGIN: null,
     LOGOUT: null,
-    ALERT: null
+    ALERT: null,
+    BOOTSTRAP: null,
+    BLUEPRINTS: null,
+    PROCESSES: null
   }),
 
   ActionSources: keyMirror({

@@ -11,6 +11,8 @@ function extractNames(data) {
 
 export default {
 
+  // BLUEPRINTS
+
   getBlueprintNames: function(string) {
     var res = jquery.cookie("_processes");
     if(res === undefined)
@@ -19,19 +21,29 @@ export default {
       res = JSON.parse(res).names;
     else
       res = res.names
-
     return res;
-
   },
 
   setBlueprintNames: function(data) {
     var cookie_data = {
-      names: extractNames(data)
+      names: data
     }
     
     jquery.cookie.json = true;
     jquery.cookie("_processes", cookie_data);
   },
+
+  addBlueprintName: function(name) {
+    var current = this.getBlueprintNames();
+    var index = current.indexOf(name);
+    if(index !== -1) {
+      current.splice(index, 1);
+    }
+    current.unshift(name);
+    this.setBlueprintNames(current);
+  },
+
+  // USER
 
   setUser: function(data) {
     jquery.cookie("_bf_user", data.username);
@@ -47,6 +59,7 @@ export default {
   removeUser: function() {
     jquery.removeCookie('_bf_user');
     jquery.removeCookie('_bf_token');
+    jquery.removeCookie('_processes');
   }
 
 }

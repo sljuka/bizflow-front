@@ -29,5 +29,6 @@ export default assign(new Dispatcher(), {
       source: Constants.ActionSources.VIEW_ACTION,
       action: action
     });
+    console.info(action.type)
   }
 });

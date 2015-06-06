@@ -13,7 +13,6 @@ function login(username, key) {
     username: username,
     token: key
   }
-
   CookieHandler.setUser(_user)
 }
 
@@ -32,6 +31,7 @@ const SessionStore = assign({}, BaseStore, {
     if(_user === null) {
       if(CookieHandler.getUser().user !== undefined && CookieHandler.getUser().token !== undefined) {
         res = CookieHandler.getUser();
+        _user = res;
       }
     } else {
       res = _user;

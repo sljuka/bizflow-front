@@ -4,12 +4,14 @@ import Authentication from './Authentication.jsx';
 import Alert from './Alert.jsx'
 import SessionActionCreators from '../actions/SessionActionCreators'
 import SessionStore from '../stores/SessionStore'
+import Bootstrapping from './Bootstrapping.jsx'
 
 export default React.createClass({
 
   getInitialState() {
     return {
-      user: SessionStore.getUser()
+      user: SessionStore.getUser(),
+      bootstrapped: false
     };
   },
 
@@ -38,8 +40,11 @@ export default React.createClass({
   render() {
 
     var content = <Authentication handleLogin={this.handleLogin} />
-    if(this.state.user !== null)
-      content = <ProcessController handleLogout={this.handleLogout} />
+    if(this.state.user !== null) {
+      if(this.state.bootstrapped === false) {
+        content = <ProcessController handleLogout={this.handleLogout} />
+      }
+    }
 
     return (
       <div>

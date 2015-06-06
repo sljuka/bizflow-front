@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import Alert from 'react-bootstrap/lib/Alert';
-import TodoStore from '../stores/TodoStore';
 import AlertStore from '../stores/AlertStore';
 
 export default React.createClass({
