@@ -6,13 +6,16 @@ export default {
 
   // Each time you add an action, add it here
   ActionTypes: keyMirror({
-    ADD_TASK: null,
     LOGIN: null,
     LOGOUT: null,
     ALERT: null,
-    BOOTSTRAP: null,
-    BLUEPRINTS: null,
-    PROCESSES: null
+
+    FETCH_BLUEPRINTS: null,
+
+    FETCH_PROCESSES: null,
+    SHOW_PROCESS: null,
+    SHOW_PROCESSES: null,
+    OPEN_BLUEPRINT: null
   }),
 
   ActionSources: keyMirror({

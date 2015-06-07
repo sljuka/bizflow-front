@@ -10,8 +10,7 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      user: SessionStore.getUser(),
-      bootstrapped: false
+      user: SessionStore.getUser()
     };
   },
 
@@ -41,9 +40,7 @@ export default React.createClass({
 
     var content = <Authentication handleLogin={this.handleLogin} />
     if(this.state.user !== null) {
-      if(this.state.bootstrapped === false) {
-        content = <ProcessController handleLogout={this.handleLogout} />
-      }
+      content = <ProcessController handleLogout={this.handleLogout} />
     }
 
     return (

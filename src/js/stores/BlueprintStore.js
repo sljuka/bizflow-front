@@ -2,6 +2,7 @@ import Dispatcher from '../Dispatcher';
 import Constants from '../Constants';
 import BaseStore from './BaseStore';
 import assign from 'object-assign';
+import _ from 'lodash';
 
 // data storage
 let _blueprints = []
@@ -15,7 +16,7 @@ function blueprints(data) {
 const BlueprintsStore = assign({}, BaseStore, {
   // public methods used by Controller-View to operate on data
   getBlueprints() {
-    return _blueprints;
+    return _.sortBy(_blueprints, 'name');
   },
 
   // register store with dispatcher, allowing actions to flow through
@@ -23,7 +24,7 @@ const BlueprintsStore = assign({}, BaseStore, {
     let action = payload.action;
 
     switch(action.type) {
-      case Constants.ActionTypes.BLUEPRINTS:
+      case Constants.ActionTypes.FETCH_BLUEPRINTS:
         blueprints(action.data)
         BlueprintsStore.emitChange();
         break;

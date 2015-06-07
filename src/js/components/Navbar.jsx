@@ -16,8 +16,6 @@ export default React.createClass({
     };
   },
 
-  //blueprints: [{"id":1,"name":"sample_process_2","description":"sample_process_2","test":"1 sample_process_2"},{"id":2,"name":"narucivanje_jela","description":"proces za narucivanje jela","test":"2 narucivanje_jela"},{"id":3,"name":"sample_process","description":"sample_process","test":"3 sample_process"},{"id":4,"name":"make_breakfast","description":"creates breakfast","test":"4 make_breakfast"}]
-
   logoutClick(e) {
     e.preventDefault();
     this.props.handleLogout();

@@ -8,7 +8,7 @@ export default React.createClass({
     return (
       <ul className="process-bubble__list">
         {this.props.processes.map(process =>
-          <ProcessItem key={process.id} process={process} />
+          <ProcessItem key={process.id} process={process} showProcess={this.props.showProcess} />
         )}
       </ul>
     );

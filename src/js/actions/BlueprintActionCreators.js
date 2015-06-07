@@ -14,7 +14,7 @@ export default {
       },
       success: function(data) {
         Dispatcher.handleViewAction({
-          type: Constants.ActionTypes.BLUEPRINTS,
+          type: Constants.ActionTypes.FETCH_BLUEPRINTS,
           data: {
             blueprints: data
           }

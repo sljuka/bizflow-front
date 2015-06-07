@@ -8,22 +8,32 @@ import CookieHandler from '../utils/cookieHandler';
 export default {
 
   viewProcess(name) {
-    
-    var token = SessionStore.getUser().token;
 
-    CookieHandler.addBlueprintName(name);
-    var names = CookieHandler.getBlueprintNames();
+    if(typeof(name) === "string") {
+      Dispatcher.handleViewAction({
+        type: Constants.ActionTypes.OPEN_BLUEPRINT,
+        data: {
+          blueprintName: name
+        }
+      });
+    }
+
+    var token = SessionStore.getUser().token;
+    var blueprints = ProcessStore.getOpenedBlueprints();
+
+    if(blueprints.length === 0)
+      return;
 
     $.ajax({
       url: "http://localhost:3000/api/v1/processes",
       method: "GET",
       data: {
         token: token,
-        names: JSON.stringify(names)
+        names: JSON.stringify(blueprints)
       },
       success: function(data) {
         Dispatcher.handleViewAction({
-          type: Constants.ActionTypes.PROCESSES,
+          type: Constants.ActionTypes.FETCH_PROCESSES,
           data: {
             processes: data
           }
@@ -42,6 +52,20 @@ export default {
         });
       }
     });
+  },
+
+  showProcess(blueprint, id) {
+    Dispatcher.handleViewAction({
+      type: Constants.ActionTypes.SHOW_PROCESS,
+      data: {
+        blueprint: blueprint,
+        id: id
+      }
+    });
+  },
+
+  showProcesses(blueprint) {
+    
   }
 
 };

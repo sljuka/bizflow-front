@@ -1,65 +1,68 @@
 import jquery from 'jquery';
-import cookie from 'jquery.cookie';
+import cookie from 'js-cookie';
 
-function extractNames(data) {
-  var res = []
-  for(var i = 0; i < data.length; i++) {
-    res.push(data[i].name)
-  }
-  return res;
+
+const COOKIE_KEYS = {
+  blueprints: "_bf_blueprints",
+  user: "_bf_user",
+  token: "_bf_token"
 }
 
 export default {
 
+
   // BLUEPRINTS
 
   getBlueprintNames: function(string) {
-    var res = jquery.cookie("_processes");
+    
+    var res = cookie(COOKIE_KEYS.blueprints);
+    
     if(res === undefined)
       return [];
+
     if(typeof(res) == "string")
       res = JSON.parse(res).names;
     else
       res = res.names
     return res;
+  
   },
 
   setBlueprintNames: function(data) {
+
+    if(data == null || data.length === 0) {
+      cookie.remove(COOKIE_KEYS.blueprints);
+      return;
+    }
+
     var cookie_data = {
       names: data
     }
-    
-    jquery.cookie.json = true;
-    jquery.cookie("_processes", cookie_data);
-  },
 
-  addBlueprintName: function(name) {
-    var current = this.getBlueprintNames();
-    var index = current.indexOf(name);
-    if(index !== -1) {
-      current.splice(index, 1);
-    }
-    current.unshift(name);
-    this.setBlueprintNames(current);
+    cookie.json = true;
+    cookie(COOKIE_KEYS.blueprints, cookie_data);
+
   },
 
   // USER
 
   setUser: function(data) {
-    jquery.cookie("_bf_user", data.username);
-    jquery.cookie("_bf_token", data.token);
+    cookie.json = false;
+    cookie(COOKIE_KEYS.user, data.username);
+    cookie(COOKIE_KEYS.token, data.token);
   },
 
   getUser: function() {
-    var user = jquery.cookie("_bf_user");
-    var token = jquery.cookie("_bf_token");
+    cookie.json = false;
+    var user = cookie(COOKIE_KEYS.user);
+    var token = cookie(COOKIE_KEYS.token);
     return {user: user, token: token};
   },
 
   removeUser: function() {
-    jquery.removeCookie('_bf_user');
-    jquery.removeCookie('_bf_token');
-    jquery.removeCookie('_processes');
+    cookie.remove(COOKIE_KEYS.user);
+    cookie.remove(COOKIE_KEYS.token);
+    cookie.remove(COOKIE_KEYS.blueprints);
   }
 
 }
