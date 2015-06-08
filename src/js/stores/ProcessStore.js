@@ -62,9 +62,9 @@ function showProcess(blueprintName, id) {
   blueprint.showedProcess = process;
 }
 
-function showProcesses(blueprint) {
-  var blueprint = _.find(_processes, {'name': blueprintName });
-  blueprint.showProcesses = null;
+function showProcesses(name) {
+  var blueprint = _.find(_processes, {'name': name });
+  blueprint.showedProcess = null;
 }
 
 function mergeProcesses(current, fresh) {
@@ -91,6 +91,28 @@ function mergeProcesses(current, fresh) {
   });
 
   return res.filter(function(item) { return item != null });
+}
+
+function closeBlueprint(name) {
+  _.remove(_openedBlueprints, function(item) { return item === name } );
+  _.remove(_processes, function(item) { return item.name == name} );
+
+  CookieHandler.setBlueprintNames(_openedBlueprints);
+}
+
+function refreshProcess(process) {
+  var blueprint = _.find(_processes, { 'name': process.name });
+  var index = _.findIndex(blueprint.processes, { 'id': process.id });
+
+  if(index !== -1)
+    blueprint.processes[index] = process;
+  
+  console.log(blueprint.processes);
+
+  if(blueprint.showedProcess.id === process.id)
+    blueprint.showedProcess = process;
+
+  
 }
 
 /**
@@ -122,6 +144,26 @@ const ProcessStore = assign({}, BaseStore, {
       case Constants.ActionTypes.LOGOUT:
         removeBlueprints();
         setProcesses([]);
+        break;
+
+      case Constants.ActionTypes.CLOSE_BLUEPRINT:
+        closeBlueprint(action.data.blueprint)
+        ProcessStore.emitChange();
+        break;
+
+      case Constants.ActionTypes.SHOW_PROCESSES:
+        showProcesses(action.data.blueprint)
+        ProcessStore.emitChange();
+        break;
+
+      case Constants.ActionTypes.RUN_PROCESS:
+        refreshProcess(action.data.process);
+        ProcessStore.emitChange();
+        break;
+
+      case Constants.ActionTypes.FETCH_PROCESS:
+        refreshProcess(action.data.process);
+        ProcessStore.emitChange();
         break;
 
     }

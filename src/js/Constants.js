@@ -13,9 +13,12 @@ export default {
     FETCH_BLUEPRINTS: null,
 
     FETCH_PROCESSES: null,
+    FETCH_PROCESS: null,
     SHOW_PROCESS: null,
     SHOW_PROCESSES: null,
-    OPEN_BLUEPRINT: null
+    OPEN_BLUEPRINT: null,
+    CLOSE_BLUEPRINT: null,
+    RUN_PROCESS: null
   }),
 
   ActionSources: keyMirror({

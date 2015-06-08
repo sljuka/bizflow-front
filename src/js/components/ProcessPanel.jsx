@@ -9,7 +9,13 @@ export default React.createClass({
       <div className="container-fluid">
         <Row>
         {this.props.processes.map(process =>
-          <ProcessBubble key={process.id} process={process} showProcess={this.props.showProcess} />
+          <ProcessBubble
+            key={process.id}
+            process={process}
+            showProcess={this.props.showProcess}
+            closeBlueprint={this.props.closeBlueprint}
+            backToProcesses={this.props.backToProcesses}
+            runProcess={this.props.runProcess} />
         )}
         </Row>
       </div>

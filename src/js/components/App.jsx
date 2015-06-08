@@ -4,7 +4,6 @@ import Authentication from './Authentication.jsx';
 import Alert from './Alert.jsx'
 import SessionActionCreators from '../actions/SessionActionCreators'
 import SessionStore from '../stores/SessionStore'
-import Bootstrapping from './Bootstrapping.jsx'
 
 export default React.createClass({
 

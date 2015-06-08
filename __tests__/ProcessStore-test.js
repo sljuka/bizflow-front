@@ -103,6 +103,18 @@ describe('TodoStore', function() {
     };
   }
 
+  var closeBlueprintAction = function(name) {
+    return {
+      source: 'VIEW_ACTION',
+      action: {
+        type: Constants.ActionTypes.CLOSE_BLUEPRINT,
+        data: {
+          blueprint: name
+        }
+      }
+    };
+  }
+
   //
 
   var Dispatcher;
@@ -164,9 +176,6 @@ describe('TodoStore', function() {
     callback(openBlueprintAction("sample_process_2"));
     callback(processesAction);
 
-    console.log(ProcessStore.getProcesses());
-    console.log(ProcessStore.getOpenedBlueprints());
-
     callback(showProcessAction("sample_process_2", 1));
     
     expect(ProcessStore.getProcesses()[0].showedProcess).toEqual(responseSample[1].processes[2]);
@@ -175,6 +184,16 @@ describe('TodoStore', function() {
     callback(processesAction);
     
     expect(ProcessStore.getProcesses()[1].showedProcess).toEqual(responseSample[1].processes[2]);
+  });
+
+  it('closes blueprints', function() {
+    callback(openBlueprintAction("sample_process_2"));
+    callback(openBlueprintAction("make_breakfast"));
+    callback(processesAction);
+    
+    callback(closeBlueprintAction("make_breakfast"));
+    
+    expect(ProcessStore.getProcesses()).toEqual([responseSample[1]]);
   });
 
 });

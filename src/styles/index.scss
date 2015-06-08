@@ -2,6 +2,8 @@ $bordergrey: #aaa;
 $itemselect: #7AD497;
 $black: black;
 $white: white;
+$greenProcess: #D4FDD7;
+$yellowAction: #FFFCCD;
 
 .authentication {
   margin-top: 150px;
@@ -22,20 +24,20 @@ $white: white;
 }
 
 .process-bubble {
-  height: 500px;
   border: 1px solid $bordergrey;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   margin-bottom: 20px;
 }
 
 .process-bubble__title {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   border-bottom: 1px solid $bordergrey;
   text-align: center;
   padding: 10px;
   margin: 0px;
-  font-size: 28px;
+  font-size: 18px;
   background-color: $black;
   color: $white;
 }
@@ -43,12 +45,27 @@ $white: white;
 .process-bubble__title__version {
   margin: 15px;
   color: $bordergrey;
-  font-size: 22px;
+  font-size: 14px;
+}
+
+.process-bubble__close {
+  float: right;
+  padding-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: $bordergrey;
+}
+
+.process-bubble__close:hover {
+  color: $white;
 }
 
 .process-bubble__list {
+  height: 500px;
   list-style: none;
   padding: 0px;
+  overflow-y: scroll;
+  margin: 0px;
 }
 
 .process-bubble__list li {
@@ -56,11 +73,107 @@ $white: white;
 }
 
 .process-bubble__list__item {
-  height: 80px;
-  padding: 30px;
+  height: 52px;
+  padding: 16px;
   cursor: pointer;
 }
 
 .process-bubble__list__item:hover {
   background-color: $itemselect;
+}
+
+.process-bubble__list__item--not_started {
+  @extend .process-bubble__list__item;
+}
+
+.process-bubble__list__item--not_started:hover {
+  @extend .process-bubble__list__item:hover;
+}
+
+.process-bubble__list__item--task {
+  background-color: $yellowAction;
+  @extend .process-bubble__list__item;
+}
+
+.process-bubble__list__item--task:hover {
+  @extend .process-bubble__list__item:hover; 
+}
+
+.process-bubble__back {
+  color: $black;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.process-bubble__back:hover {
+  color: $bordergrey;
+}
+
+.process-details-table {
+  margin-bottom: 20px;
+}
+
+.process-bubble__details {
+  height: 500px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.process-bubble__details__buttons button {
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.process-bubble__list__item__creation-time {
+  padding-left: 20px;
+  color: $bordergrey;
+}
+
+.process-bubble__list__item__version {
+  color: $bordergrey;
+}
+
+.process-details__main-panel {
+  width: 50%;
+  display: inline-block;
+}
+
+.process-details__action-display {
+  width: 50%;
+  vertical-align: top;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.process-details__action-display__list {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; 
+}
+
+.process-details__panel {
+  padding-top: 15px;
+}
+
+.process-details__action-display__list__item {
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid;
+  height: 50px;
+}
+
+.process-details__action-display__list__item--current {
+  @extend .process-details__action-display__list__item;
+  background-color: $yellowAction;
+}
+
+.process-details__task-display__list {
+  @extend .process-details__action-display__list;
+  border-radius: 0px;
+}
+
+.process-details__task-display__list__item {
+  height: 40px;
+  border: 1px solid;
+  margin-bottom: 10px;
 }
