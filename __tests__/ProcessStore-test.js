@@ -71,7 +71,7 @@ describe('TodoStore', function() {
   var processesAction = {
     source: 'VIEW_ACTION',
     action: {
-      type: Constants.ActionTypes.PROCESSES,
+      type: Constants.ActionTypes.FETCH_PROCESSES,
       data: {
         processes: responseSample
       }
@@ -96,8 +96,8 @@ describe('TodoStore', function() {
       action: {
         type: Constants.ActionTypes.SHOW_PROCESS,
         data: {
-          blueprintName: name,
-          processId: id
+          blueprint: name,
+          id: id
         }
       }
     };
@@ -163,6 +163,10 @@ describe('TodoStore', function() {
   it('saves showedProcesses', function() {
     callback(openBlueprintAction("sample_process_2"));
     callback(processesAction);
+
+    console.log(ProcessStore.getProcesses());
+    console.log(ProcessStore.getOpenedBlueprints());
+
     callback(showProcessAction("sample_process_2", 1));
     
     expect(ProcessStore.getProcesses()[0].showedProcess).toEqual(responseSample[1].processes[2]);
