@@ -17,7 +17,9 @@ export default React.createClass({
   render() {
     return (
       <div className="process-bubble__details">
-        <Glyphicon onClick={this.backClick} className="process-bubble__back" glyph='circle-arrow-left' />
+        <div className="process-bubble__details__menu">
+          <Glyphicon onClick={this.backClick} className="process-bubble__back" glyph='circle-arrow-left' />
+        </div>
         <div className="process-details__panel">
           <div className="process-details__main-panel">
             <ProcessDetailsTable process={this.props.process} />

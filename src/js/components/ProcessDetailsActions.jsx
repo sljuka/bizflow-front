@@ -4,6 +4,7 @@ import ProcessItem from "./ProcessItem.jsx"
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import ProcessDetailsTable from './ProcessDetailsTable.jsx';
 import Button from 'react-bootstrap/lib/Button';
+import Panel from 'react-bootstrap/lib/Panel';
 
 export default React.createClass({
 
@@ -29,8 +30,7 @@ export default React.createClass({
       if(this.props.process.head != null && this.props.process.head.length > 0 && this.props.process.head[0].action != null)
         current = this.props.process.head[0].action
 
-      actions = <div>
-                  <label>Actions:</label>
+      actions = <Panel className="process-details__task-display__list" header='Actions'>
                   <ul className="process-details__action-display__list">
                     {this.props.process.actions.map(action =>
                       <li className={actionClassName(current, action)} key={action.id}>
@@ -38,7 +38,7 @@ export default React.createClass({
                       </li>
                     )}
                   </ul>
-                </div>
+                </ Panel>
     }
 
     return (

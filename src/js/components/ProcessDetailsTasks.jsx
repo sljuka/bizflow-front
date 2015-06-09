@@ -11,17 +11,23 @@ import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 export default React.createClass({
 
   render() {
+
+    var tasks = [];
+    var content = "";
+    if(this.props.process.head != null && this.props.process.head[0].action != null && this.props.process.head[0].action.tasks.length > 0) {
+      tasks = this.props.process.head[0].action.tasks;
+      content = <Panel className="process-details__task-display__list" header='Tasks'>
+                  <ListGroup fill>
+                    {tasks.map(task =>
+                      <ListGroupItem key={task.id}><div>{task.name} </div><Button className="right">Assign</Button></ListGroupItem>
+                    )}
+                  </ListGroup>
+                </Panel>
+    }
+
     return (
       <div>
-        <Panel className="process-details__task-display__list" header='Tasks'>
-          Some default panel content here.
-          <ListGroup fill>
-            <ListGroupItem>Item 1</ListGroupItem>
-            <ListGroupItem>Item 2</ListGroupItem>
-            <ListGroupItem>&hellip;</ListGroupItem>
-          </ListGroup>
-          Some more panel content here.
-        </Panel>
+        {content}     
       </div>
     );
   }

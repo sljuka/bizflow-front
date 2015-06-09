@@ -110,18 +110,18 @@ $yellowAction: #FFFCCD;
 }
 
 .process-details-table {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .process-bubble__details {
   height: 500px;
-  padding: 10px;
+  padding: 5px;
   overflow-y: scroll;
 }
 
 .process-bubble__details__buttons button {
   margin-right: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .process-bubble__list__item__creation-time {
@@ -136,13 +136,14 @@ $yellowAction: #FFFCCD;
 .process-details__main-panel {
   width: 50%;
   display: inline-block;
+  padding: 5px;
 }
 
 .process-details__action-display {
   width: 50%;
   vertical-align: top;
   display: inline-block;
-  padding: 0 15px;
+  padding: 5px;
 }
 
 .process-details__action-display__list {
@@ -152,7 +153,7 @@ $yellowAction: #FFFCCD;
 }
 
 .process-details__panel {
-  padding-top: 15px;
+
 }
 
 .process-details__action-display__list__item {
@@ -176,4 +177,8 @@ $yellowAction: #FFFCCD;
   height: 40px;
   border: 1px solid;
   margin-bottom: 10px;
+}
+
+.process-bubble__details__menu {
+  padding: 5px;
 }

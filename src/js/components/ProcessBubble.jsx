@@ -19,7 +19,7 @@ export default React.createClass({
     }
 
     return (
-      <Col md={4}>
+      <Col md={6} xs={12} lg={4}>
         <div className="process-bubble">
           <h1 className="process-bubble__title">
             {this.props.process.humanName}
