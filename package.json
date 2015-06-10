@@ -4,22 +4,6 @@
   "description": "bizflow-front: client for the bizflow api",
   "author": "",
   "license": "MIT",
-  "devDependencies": {
-    "babel-jest": "^5.2.0",
-    "babelify": "^6.1.2",
-    "browserify": "^10.2.3",
-    "gulp": "^3.8.7",
-    "gulp-connect": "^2.2.0",
-    "gulp-sass": "^2.0.1",
-    "gulp-util": "^3.0.5",
-    "jest-cli": "^0.4.5",
-    "reactify": "^1.1.1",
-    "require-dir": "^0.3.0",
-    "rewire": "^2.3.3",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.2.1"
-  },
   "scripts": {
     "dev": "gulp --type dev",
     "start": "gulp",
@@ -46,6 +30,20 @@
     "lodash": "^3.9.3",
     "object-assign": "^2.0.0",
     "react": "^0.13.3",
-    "react-bootstrap": "^0.23.0"
+    "react-bootstrap": "^0.23.0",
+    "babel-jest": "^5.2.0",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.3",
+    "gulp": "^3.8.7",
+    "gulp-connect": "^2.2.0",
+    "gulp-sass": "^2.0.1",
+    "gulp-util": "^3.0.5",
+    "jest-cli": "^0.4.5",
+    "reactify": "^1.1.1",
+    "require-dir": "^0.3.0",
+    "rewire": "^2.3.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1"
   }
 }
