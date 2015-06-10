@@ -5,7 +5,7 @@ export default {
   },
 
   "production": {
-    "host": "http://sljuka.info/api"
+    "host": "http://sljuka.info"
   }
 
 };
