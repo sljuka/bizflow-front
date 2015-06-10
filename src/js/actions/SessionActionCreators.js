@@ -1,12 +1,13 @@
 import Dispatcher from '../Dispatcher';
 import Constants from '../Constants';
-import $ from 'jquery'
+import $ from 'jquery';
+import Config from '../config';
 
 export default {
 
   login(username, password) {
     $.ajax({
-      url: "http://localhost:3000/api/v1/users/login_info",
+      url: Config.production.host + "/api/v1/users/login_info",
       method: "GET",
       data: {
         username: username,

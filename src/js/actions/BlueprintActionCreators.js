@@ -2,12 +2,13 @@ import Dispatcher from '../Dispatcher';
 import Constants from '../Constants';
 import $ from 'jquery'
 import SessionStore from '../stores/SessionStore'
+import Config from '../config'
 
 export default {
 
   retrieveBlueprints() {
     $.ajax({
-      url: "http://localhost:3000/api/v1/blueprints",
+      url: Config.production.host + "/api/v1/blueprints",
       method: "GET",
       data: {
         token: SessionStore.getUser().token

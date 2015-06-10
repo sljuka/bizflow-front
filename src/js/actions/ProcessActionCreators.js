@@ -4,6 +4,7 @@ import $ from 'jquery'
 import SessionStore from '../stores/SessionStore'
 import ProcessStore from '../stores/ProcessStore'
 import CookieHandler from '../utils/cookieHandler';
+import Config from '../config'
 
 export default {
 
@@ -25,7 +26,7 @@ export default {
       return;
 
     $.ajax({
-      url: "http://localhost:3000/api/v1/processes",
+      url: Config.production.host + "/api/v1/processes",
       method: "GET",
       data: {
         token: token,
@@ -67,7 +68,7 @@ export default {
     var token = SessionStore.getUser().token;
 
     $.ajax({
-      url: "http://localhost:3000/api/v1/processes/" + id,
+      url: Config.production.host + "/api/v1/processes/" + id,
       method: "GET",
       data: {
         token: token,
@@ -117,7 +118,7 @@ export default {
     var token = SessionStore.getUser().token;
 
     $.ajax({
-      url: "http://localhost:3000/api/v1/processes/" + id + "/run",
+      url: Config.production.host + "/api/v1/processes/" + id + "/run",
       method: "POST",
       data: {
         token: token,
