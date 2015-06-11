@@ -25,8 +25,7 @@ $yellowAction: #FFFCCD;
 
 .process-bubble {
   border: 1px solid $bordergrey;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
   margin-bottom: 20px;
 }
 
@@ -64,7 +63,7 @@ $yellowAction: #FFFCCD;
   height: 500px;
   list-style: none;
   padding: 0px;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin: 0px;
 }
 
@@ -153,7 +152,7 @@ $yellowAction: #FFFCCD;
 }
 
 .process-details__panel {
-
+  
 }
 
 .process-details__action-display__list__item {
@@ -181,4 +180,22 @@ $yellowAction: #FFFCCD;
 
 .process-bubble__details__menu {
   padding: 5px;
+}
+
+.process-bubble__footer {
+  background-color: $black;
+  height: 40px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.process-bubble__add {
+  font-size: 18px;
+  padding: 10px;
+  color: $bordergrey;
+  cursor: pointer;
+}
+
+.process-bubble__add:hover {
+  color: $white;
 }

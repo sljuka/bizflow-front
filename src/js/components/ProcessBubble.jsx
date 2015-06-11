@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/lib/Col';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import ProcessList from './ProcessList.jsx'
 import ProcessDetails from './ProcessDetails.jsx'
+import ProcessBubbleFooter from './ProcessBubbleFooter.jsx'
 
 export default React.createClass({
 
@@ -27,6 +28,7 @@ export default React.createClass({
             <Glyphicon onClick={this.closeClick} className="process-bubble__close" glyph='remove' />
           </h1>
           {content}
+          <ProcessBubbleFooter />
         </div>
       </Col>
     );

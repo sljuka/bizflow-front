@@ -1,8 +1,4 @@
 import React from 'react';
-import Col from 'react-bootstrap/lib/Col';
-import ProcessItem from "./ProcessItem.jsx"
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import ProcessDetailsTable from './ProcessDetailsTable.jsx';
 import Button from 'react-bootstrap/lib/Button';
 
 export default React.createClass({

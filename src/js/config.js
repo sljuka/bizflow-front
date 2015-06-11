@@ -2,10 +2,12 @@ export default {
   
   "development": {
     "host": 'http://localhost:3000'
+
   },
 
   "production": {
-    "host": "http://sljuka.info"
+    "host": 'http://localhost:3000',
+    //"host": "http://sljuka.info"
   }
 
 };
