@@ -8,7 +8,7 @@ export default {
   login(username, password) {
     $.ajax({
       url: Config.production.host + "/api/v1/users/login_info",
-      method: "GET",
+      method: "POST",
       data: {
         username: username,
         password: password
