@@ -106,10 +106,10 @@ function refreshProcess(process) {
 
   if(index !== -1)
     blueprint.processes[index] = process;
-  
-  console.log(blueprint.processes);
+  else
+    blueprint.processes.unshift(process);
 
-  if(blueprint.showedProcess.id === process.id)
+  if(blueprint.showedProcess != null && blueprint.showedProcess.id === process.id)
     blueprint.showedProcess = process;
 
   
@@ -166,6 +166,25 @@ const ProcessStore = assign({}, BaseStore, {
         ProcessStore.emitChange();
         break;
 
+      case Constants.ActionTypes.CREATE_PROCESS:
+        refreshProcess(action.data.process);
+        ProcessStore.emitChange();
+        break;
+
+      case Constants.ActionTypes.ASSIGN_TASK:
+        refreshProcess(action.data.process);
+        ProcessStore.emitChange();
+        break;
+
+      case Constants.ActionTypes.FINISH_TASK:
+        refreshProcess(action.data.process);
+        ProcessStore.emitChange();
+        break;
+
+      case Constants.ActionTypes.SUBMIT_INPUT:
+        refreshProcess(action.process);
+        ProcessStore.emitChange();
+        break;
     }
   }),
 

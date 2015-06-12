@@ -1,7 +1,6 @@
 import React from 'react';
 import Col from 'react-bootstrap/lib/Col';
 import ProcessItem from "./ProcessItem.jsx"
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import ProcessDetailsTable from './ProcessDetailsTable.jsx';
 import ProcessDetailsButtons from './ProcessDetailsButtons.jsx';
 import ProcessDetailsActions from './ProcessDetailsActions.jsx';
@@ -17,14 +16,14 @@ export default React.createClass({
   render() {
     return (
       <div className="process-bubble__details">
-        <div className="process-bubble__details__menu">
-          <Glyphicon onClick={this.backClick} className="process-bubble__back" glyph='circle-arrow-left' />
-        </div>
+        <ProcessDetailsButtons process={this.props.process} backToProcesses={this.props.backToProcesses} runProcess={this.props.runProcess} submitInput={this.props.submitInput} />
         <div className="process-details__panel">
           <div className="process-details__main-panel">
             <ProcessDetailsTable process={this.props.process} />
-            <ProcessDetailsButtons process={this.props.process} runProcess={this.props.runProcess} />
-            <ProcessDetailsTasks process={this.props.process} />
+            <ProcessDetailsTasks
+              process={this.props.process}
+              assignTask={this.props.assignTask}
+              finishTask={this.props.finishTask} />
           </div>
           <div className="process-details__action-display">
             <ProcessDetailsActions process={this.props.process} />

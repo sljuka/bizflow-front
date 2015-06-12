@@ -14,9 +14,16 @@ export default React.createClass({
 
   render() {
 
-    var actionClassName = function(current_action, action) {
-      var res = "process-details__action-display__list__item"
-      if(current_action != null && current_action.id === action.id) {
+    var actionClassName = function(process, action) {
+      var res = "process-details__action-display__list__item";
+
+      var current_action = null;
+      if(process.head != null && process.head.length > 0 && process.head[0].action != null)
+        current_action = process.head[0].action
+
+      if(process.finished_at != null)
+        res += "--finished";
+      else if(current_action != null && current_action.id === action.id) {
         res += "--current";
       }
       return res;
@@ -25,16 +32,11 @@ export default React.createClass({
     var actions = <ul className="process-details__action-display__list"></ul>
 
     if(this.props.process.actions != null) {
-
-      var current = null;
-      if(this.props.process.head != null && this.props.process.head.length > 0 && this.props.process.head[0].action != null)
-        current = this.props.process.head[0].action
-
-      actions = <Panel className="process-details__task-display__list" header='Actions'>
+      actions = <Panel className="process-details__task-display__list" header={<strong>Actions</strong>}>
                   <ul className="process-details__action-display__list">
                     {this.props.process.actions.map(action =>
-                      <li className={actionClassName(current, action)} key={action.id}>
-                        {action.name}
+                      <li className={actionClassName(this.props.process, action)} key={action.id}>
+                        {action.human_name}
                       </li>
                     )}
                   </ul>

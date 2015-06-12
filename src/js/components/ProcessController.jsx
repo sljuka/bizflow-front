@@ -1,31 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar.jsx';
 import ProcessPanel from './ProcessPanel.jsx';
-import ProcessStore from "../stores/ProcessStore";
 import ProcessActionCreators from '../actions/ProcessActionCreators'
 
 export default React.createClass({
-
-  getInitialState() {
-    return {
-      processes: ProcessStore.getProcesses()
-    };
-  },
-
-  _onChange() {
-    this.setState({
-      processes: ProcessStore.getProcesses()
-    });
-  },
-
-  componentDidMount() {
-    ProcessStore.addChangeListener(this._onChange);
-    ProcessActionCreators.viewProcess()
-  },
-
-  componentWillUnmount() {
-    ProcessStore.removeChangeListener(this._onChange);
-  },
 
   // COMPONENT FUNCTIONS
 
@@ -45,16 +23,39 @@ export default React.createClass({
     ProcessActionCreators.runProcess(id);
   },
 
+  createProcess(blueprint_id) {
+    ProcessActionCreators.createProcess(blueprint_id);
+  },
+
+  assignTask(task_id) {
+    ProcessActionCreators.assignTask(task_id);
+  },
+
+  finishTask(task_id) {
+    ProcessActionCreators.finishTask(task_id);
+  },
+
+  componentDidMount() {
+    ProcessActionCreators.viewProcess()
+  },
+
+  submitInput(process, value) {
+    ProcessActionCreators.submitInput(process, value);
+  },
+
   render() {
     return (
       <div>
         <Navbar handleLogout={this.props.handleLogout} />
         <ProcessPanel
-          processes={this.state.processes}
           showProcess={this.showProcess}
           closeBlueprint={this.closeBlueprint}
           backToProcesses={this.backToProcesses}
-          runProcess={this.runProcess} />
+          runProcess={this.runProcess}
+          createProcess={this.createProcess}
+          assignTask={this.assignTask}
+          submitInput={this.submitInput}
+          finishTask={this.finishTask} />
       </div>      
     );
   }

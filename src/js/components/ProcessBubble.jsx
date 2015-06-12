@@ -14,9 +14,18 @@ export default React.createClass({
 
   render() {
 
-    var content = <ProcessList processes={this.props.process.processes} showProcess={this.props.showProcess} />
+    var content = <ProcessList
+                    processes={this.props.process.processes}
+                    showProcess={this.props.showProcess}/>
+
     if(this.props.process.showedProcess != null) {
-      content = <ProcessDetails process={this.props.process.showedProcess} backToProcesses={this.props.backToProcesses} runProcess={this.props.runProcess} />
+      content = <ProcessDetails
+                  process={this.props.process.showedProcess}
+                  backToProcesses={this.props.backToProcesses}
+                  runProcess={this.props.runProcess}
+                  assignTask={this.props.assignTask}
+                  submitInput={this.props.submitInput}
+                  finishTask={this.props.finishTask}/>
     }
 
     return (
@@ -28,7 +37,7 @@ export default React.createClass({
             <Glyphicon onClick={this.closeClick} className="process-bubble__close" glyph='remove' />
           </h1>
           {content}
-          <ProcessBubbleFooter />
+          <ProcessBubbleFooter process={this.props.process} createProcess={this.props.createProcess} />
         </div>
       </Col>
     );

@@ -4,6 +4,8 @@ $black: black;
 $white: white;
 $greenProcess: #D4FDD7;
 $yellowAction: #FFFCCD;
+$inputColor: #F4D1B8;
+$finishGreen: #D4FFCD;
 
 .authentication {
   margin-top: 150px;
@@ -98,6 +100,24 @@ $yellowAction: #FFFCCD;
   @extend .process-bubble__list__item:hover; 
 }
 
+.process-bubble__list__item--input {
+  background-color: $inputColor;
+  @extend .process-bubble__list__item;
+}
+
+.process-bubble__list__item--input:hover {
+  @extend .process-bubble__list__item:hover; 
+}
+
+.process-bubble__list__item--finished {
+  background-color: $finishGreen;
+  @extend .process-bubble__list__item; 
+}
+
+.process-bubble__list__item--finished:hover {
+  @extend .process-bubble__list__item:hover; 
+}
+
 .process-bubble__back {
   color: $black;
   font-size: 28px;
@@ -115,7 +135,7 @@ $yellowAction: #FFFCCD;
 .process-bubble__details {
   height: 500px;
   padding: 5px;
-  overflow-y: scroll;
+  overflow-y: auto; 
 }
 
 .process-bubble__details__buttons button {
@@ -167,6 +187,11 @@ $yellowAction: #FFFCCD;
   background-color: $yellowAction;
 }
 
+.process-details__action-display__list__item--finished {
+  @extend .process-details__action-display__list__item;
+  background-color: $finishGreen;
+}
+
 .process-details__task-display__list {
   @extend .process-details__action-display__list;
   border-radius: 0px;
@@ -198,4 +223,45 @@ $yellowAction: #FFFCCD;
 
 .process-bubble__add:hover {
   color: $white;
+}
+
+.navbar__blueprint-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbar__blueprint-list__item {
+  font-size: 14px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.navbar__blueprint-list__item--selected {
+  @extend .navbar__blueprint-list__item;
+//  box-shadow: inset -1px -1px $bordergrey;
+  background-color: $yellowAction;
+}
+
+.navbar__blueprint-list__item:hover {
+
+}
+
+.task-item--assigned {
+  background-color: $yellowAction;
+}
+
+.task-item--finished {
+  background-color: $finishGreen;
+}
+
+.glyph-button {
+  color: $black;
+  font-size: 28px;
+  cursor: pointer;  
+  margin-right: 10px;
+}
+
+.glyph-button:hover {
+  color: $bordergrey;
 }

@@ -18,7 +18,11 @@ export default {
     SHOW_PROCESSES: null,
     OPEN_BLUEPRINT: null,
     CLOSE_BLUEPRINT: null,
-    RUN_PROCESS: null
+    RUN_PROCESS: null,
+    CREATE_PROCESS: null,
+    ASSIGN_TASK: null,
+    FINISH_TASK: null,
+    SUBMIT_INPUT: null
   }),
 
   ActionSources: keyMirror({
