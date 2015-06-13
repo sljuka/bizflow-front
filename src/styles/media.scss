@@ -8,24 +8,37 @@
     /*==========  Mobile First Method  ==========*/
 
     /* Custom, iPhone Retina */ 
-    @media only screen and (min-width : 320px) {
-        
+    @media only screen and (min-width : 320px) and (max-width : 991px) {
+
+        .authentication__hint {
+          margin-top: 20px;
+        }
+
+        .authentication__form__submit {
+          -webkit-appearance: none; -moz-appearance: none;
+          display: block;
+          margin: 1.5em 0;
+          font-size: 1em; line-height: 1em;
+          color: #333;
+          font-weight: bold;
+          height: 2.5em; width: 100%;
+          
+          border: 1px solid #bbb;
+          -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+        }
+
+        .notification-box {
+          position: absolute;
+          width: 92%;
+          left: 4%;
+          top: 10px;
+          z-index: 1;
+        }
+    
     }
 
-    @media only screen and (min-width : 480px) and (max-width : 991px) {
+    @media only screen and (min-width : 480px) {
 
-      .authentication__form__submit {
-        -webkit-appearance: none; -moz-appearance: none;
-        display: block;
-        margin: 1.5em 0;
-        font-size: 1em; line-height: 1em;
-        color: #333;
-        font-weight: bold;
-        height: 2.5em; width: 100%;
-        
-        border: 1px solid #bbb;
-        -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
-      }
 
     }
 
@@ -39,22 +52,6 @@
         width: 100%; height: 40px;
         line-height: 40px; font-size: 17px;
         border: 1px solid #bbb;
-      }
-
-      .authentication__hint {
-        margin-top: 20px;
-      }
-
-      .notification-box {
-        position: absolute;
-        width: 92%;
-        left: 4%;
-        top: 10px;
-        z-index: 1;
-      }
-
-      .container {
-        width: 100%;
       }
 
     }

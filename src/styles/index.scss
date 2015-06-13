@@ -158,15 +158,11 @@ $orange: rgb(236, 177, 71);
 }
 
 .process-details__main-panel {
-  width: 50%;
-  display: inline-block;
   padding: 5px;
 }
 
 .process-details__action-display {
-  width: 50%;
   vertical-align: top;
-  display: inline-block;
   padding: 5px;
 }
 
@@ -176,8 +172,8 @@ $orange: rgb(236, 177, 71);
   list-style: none; 
 }
 
-.process-details__panel {
-  
+div.process-details__panel {
+  width: 100%;
 }
 
 .process-details__action-display__list__item {
