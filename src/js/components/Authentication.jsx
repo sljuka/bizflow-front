@@ -47,8 +47,11 @@ export default React.createClass({
           <Col xs={12} md={3}>
             <Alert className="authentication__hint">
               <h4>Hint</h4>
-              <p>Use the test user:</p>
-              <p>(username: 'test', password: 'test')</p>
+              <p>Test user</p>
+              <p><strong>username:</strong> 'test'</p>
+              <p><strong>password:</strong> 'test'</p>
+              <p>This is a showcase environment, some security concerns were ommited</p>
+              <p>App is restarted every hour, so feel free to fiddle around with the app.</p>
             </Alert>
           </Col>
         </Row>
