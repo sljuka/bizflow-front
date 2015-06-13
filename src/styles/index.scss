@@ -4,8 +4,9 @@ $black: black;
 $white: white;
 $greenProcess: #D4FDD7;
 $yellowAction: #FFFCCD;
-$inputColor: #F4D1B8;
+$inputColor: #FFDCA6;
 $finishGreen: #D4FFCD;
+$orange: rgb(236, 177, 71);
 
 .authentication {
   margin-top: 150px;
@@ -15,6 +16,10 @@ $finishGreen: #D4FFCD;
   border: 2px solid $bordergrey;
   border-radius: 5px;
   padding: 40px
+}
+
+.authentication__form__title {
+  margin-top: 0px;
 }
 
 .notification-box {
@@ -260,6 +265,11 @@ $finishGreen: #D4FFCD;
   font-size: 28px;
   cursor: pointer;  
   margin-right: 10px;
+}
+
+.glyph-button--orange {
+  @extend .glyph-button;
+  color: $orange;
 }
 
 .glyph-button:hover {

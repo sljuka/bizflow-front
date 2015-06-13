@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/lib/Button';
 import Input from 'react-bootstrap/lib/Input';
 import ButtonInput from 'react-bootstrap/lib/ButtonInput'
 import Loading from './Loading.jsx';
+import Alert from 'react-bootstrap/lib/Alert';
 
 export default React.createClass({
 
@@ -19,9 +20,11 @@ export default React.createClass({
     return (
       <div className="container">
         <Row className="authentication">
-          <Col xsOffset={3} xs={6}>
+          <Col xs={12} mdOffset={3} md={6}>
             <form className="authentication__form" autoComplete="off">
               
+              <h1 className="authentication__form__title text-center">Login</h1>
+
               <Input
                 id="username"
                 name="username"
@@ -34,12 +37,19 @@ export default React.createClass({
                 type="password"
                 label="*What's your password?" />
         
-              <ButtonInput
+              <ButtonInput className="authentication__form__submit"
                 type="submit"
                 value="Login"
                 onClick={this.loginClick} />
     
             </form>
+          </Col>
+          <Col xs={12} md={3}>
+            <Alert className="authentication__hint">
+              <h4>Hint</h4>
+              <p>Use the test user:</p>
+              <p>(username: 'test', password: 'test')</p>
+            </Alert>
           </Col>
         </Row>
       </div>

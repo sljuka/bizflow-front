@@ -28,7 +28,7 @@ export default React.createClass({
         "not_started": <span><Glyphicon className="glyph-button" glyph='play' onClick={this.runClick} title="Run process"></Glyphicon></span>,
         "input":  <span>
                     <ModalTrigger modal={input} >
-                      <Glyphicon className="glyph-button" glyph='question-sign' title="Input answer"></Glyphicon>
+                      <Glyphicon className="glyph-button--orange" glyph='question-sign' title="Input answer"></Glyphicon>
                     </ModalTrigger>
                   </span>
       }

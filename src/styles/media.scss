@@ -1,0 +1,96 @@
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+
+
+
+    /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+        
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) and (max-width : 767px) {
+      
+      input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
+        -webkit-appearance: none; -moz-appearance: none;
+        display: block;
+        margin: 0;
+        width: 100%; height: 40px;
+        line-height: 40px; font-size: 17px;
+        border: 1px solid #bbb;
+      }
+
+      .authentication__form__submit {
+        -webkit-appearance: none; -moz-appearance: none;
+        display: block;
+        margin: 1.5em 0;
+        font-size: 1em; line-height: 1em;
+        color: #333;
+        font-weight: bold;
+        height: 2.5em; width: 100%;
+        
+        border: 1px solid #bbb;
+        -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+      }
+
+      .authentication__hint {
+        margin-top: 20px;
+      }
+
+      .notification-box {
+        position: absolute;
+        width: 92%;
+        left: 4%;
+        top: 10px;
+        z-index: 1;
+      }
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
+
+
+
+    /*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+        
+    }

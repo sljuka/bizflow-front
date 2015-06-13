@@ -32,9 +32,21 @@ export default React.createClass({
 
   render() {
     if(this.state.message != "") {
+
+      var alertHash = {
+        primary: 'Alert',
+        success: 'Success',
+        info: 'Info',
+        warning: 'Warning',
+        danger: 'Error'
+      }
+
+      var alertTitle = this.state.alert != null ? alertHash[this.state.alert] : "alert";
+
       return (
         <Alert bsStyle={this.state.alert} onDismiss={this.handleAlertDismiss} dismissAfter={4000} className="notification-box">
-          <h4>{this.state.message}</h4>
+          <h4>{alertTitle}</h4>
+          <p>{this.state.message}</p>
         </Alert>
       );
     } else {
